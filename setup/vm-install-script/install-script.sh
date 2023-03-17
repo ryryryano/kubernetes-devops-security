@@ -15,12 +15,8 @@ cat <<EOF > /etc/apt/sources.list.d/kubernetes.list
 deb http://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 
-KUBE_VERSION=1.20.0
+KUBE_VERSION=1.21.0
 apt-get update
-#apg-get install -y docker.io
-# grab docker because docker.io:latest doesn't work.  You'l need Docker v19.03 to work with the pinned K8s version.
-# change version to v19.03 (which is required to use pinned K8s version)
-
 apt-get install -y kubelet=${KUBE_VERSION}-00 vim build-essential jq python3-pip kubectl=${KUBE_VERSION}-00 kubernetes-cni=0.8.7-00 kubeadm=${KUBE_VERSION}-00
 pip3 install jc
 
