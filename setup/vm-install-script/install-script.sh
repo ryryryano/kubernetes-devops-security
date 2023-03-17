@@ -17,12 +17,16 @@ EOF
 
 KUBE_VERSION=1.20.0
 apt-get update
-apt-get install -y kubelet=${KUBE_VERSION}-00 vim build-essential jq python3-pip docker.io kubectl=${KUBE_VERSION}-00 kubernetes-cni=0.8.7-00 kubeadm=${KUBE_VERSION}-00
+#apg-get install -y docker.io
+# grab docker because docker.io:latest doesn't work.  You'l need Docker v19.03 to work with the pinned K8s version.
+# change version to v19.03 (which is required to use pinned K8s version)
+
+apt-get install -y kubelet=${KUBE_VERSION}-00 vim build-essential jq python3-pip kubectl=${KUBE_VERSION}-00 kubernetes-cni=0.8.7-00 kubeadm=${KUBE_VERSION}-00
 pip3 install jc
 
 ### UUID of VM 
 ### comment below line if this Script is not executed on Cloud based VMs
-jc dmidecode | jq .[1].values.uuid -r
+#jc dmidecode | jq .[1].values.uuid -r
 
 cat > /etc/docker/daemon.json <<EOF
 {
