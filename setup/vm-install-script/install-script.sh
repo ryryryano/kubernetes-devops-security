@@ -45,7 +45,7 @@ kubeadm reset -f
 
 # uncomment below line if your host doesnt have minimum requirement of 2 CPU
 # kubeadm init --kubernetes-version=${KUBE_VERSION} --ignore-preflight-errors=NumCPU --skip-token-print
-kubeadm init --kubernetes-version=${KUBE_VERSION} --skip-token-print
+kubeadm init --kubernetes-version=${KUBE_VERSION} --ignore-preflight-errors=all --skip-token-print
 
 mkdir -p ~/.kube
 sudo cp -i /etc/kubernetes/admin.conf ~/.kube/config
