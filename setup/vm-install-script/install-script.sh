@@ -15,9 +15,9 @@ cat <<EOF > /etc/apt/sources.list.d/kubernetes.list
 deb http://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 
-KUBE_VERSION=1.20.0
+# KUBE_VERSION=1.20.0
 apt-get update
-apt-get install -y kubelet=${KUBE_VERSION}-00 vim build-essential jq python3-pip kubectl=${KUBE_VERSION}-00 kubernetes-cni=0.8.7-00 kubeadm=${KUBE_VERSION}-00
+apt-get install -y kubelet vim build-essential docker.io jq python3-pip kubectl kubernetes-cni=0.8.7-00 kubeadm
 pip3 install jc
 
 ### UUID of VM 
